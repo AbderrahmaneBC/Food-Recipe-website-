@@ -3,7 +3,6 @@ require_once('controller.php');
 
 session_start();
 
-
 class ViewLogIn {
         // Afficher l'entet du page
     public function headPage (){
@@ -56,7 +55,7 @@ class ViewLogIn {
                     $control = new ClientController();
                     $logIn= $control->verifyLogInContoller($_POST['email'],$_POST['password']);
                     if($logIn != false){
-                        $_SESSION['user'] = $logIn['nom'];
+                        $_SESSION['username'] = $logIn['id'];
                         echo"login in succesfully";
                         header('location:./router_main.php');
                         

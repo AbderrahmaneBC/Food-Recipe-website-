@@ -218,6 +218,105 @@ public function insererUserModel($value1 , $value2 , $value3, $value4, $value5, 
     return $query;
 }
 
+/*......................profil...............*/
+
+
+
+public function recupererUserModelId($idvalue){
+    $conn= $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $recuperer_query="SELECT * FROM users  WHERE id = '$idvalue' ";
+    $query = $this->requete($conn , $recuperer_query);
+    $this->deconnexion($conn);
+    return $query;
+}
+
+public function insererRecetteModel($value1 , $value2 , $value3, $value4, $value5, $value6, $value7, $value8, $value9, $value10, $value11, $value12,$value13,$value14,$value15,$value16){
+    $conn = $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $insert = "INSERT INTO recette(titre,imagerecette,shortdesc,description,tempsDePreparation,tempsDeRepos,tempsDeCuisson,tempsTotal,notation,calories,difficulte,healthy,saison,fete,categorie,user) VALUES('$value1','$value2','$value3','$value4','$value5','$value6','$value7','$value8','$value9','$value10','$value11','$value12','$value13','$value14','$value15','$value16')";
+    $query = $this->requete($conn , $insert);
+    $this->deconnexion($conn);
+    return $query;
+}
+
+
+
+
+public function supprimerRecetteModel($id,$idvar){
+    $conn= $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $delet_query="DELETE FROM recette WHERE idrecette ='$idvar' AND user='$id' ";
+    $query = $this->requete($conn , $delet_query);
+    $this->deconnexion($conn);
+}
+
+public function recupererRecetteUserModel($idvalue){
+    $conn= $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $recuperer_query="SELECT * FROM recette  WHERE user = '$idvalue' ";
+    $query = $this->requete($conn , $recuperer_query);
+    $this->deconnexion($conn);
+    return $query;
+}
+/*.....................ingredient.................*/
+
+
+
+public function recupererRecetteTitleModel($idvalue){
+    $conn= $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $recuperer_query="SELECT titre FROM recette WHERE idrecette='$idvalue'";
+    $query = $this->requete($conn , $recuperer_query);
+    $this->deconnexion($conn);
+    return $query;
+
+}
+
+public function insererRecetteIngredientModel($value1 , $value2 , $value3, $value4, $value5, $value6){
+    $conn = $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $insert = "INSERT INTO recette_ingredients(idrecette,titrerecette,titreingredient,quantity,calories,healthy) VALUES('$value1', '$value2', '$value3 ','$value4','$value5','$value6')";
+    $query = $this->requete($conn , $insert);
+    $this->deconnexion($conn);
+    return $query;
+}
+
+public function recupererRecetteIngModel($idvalue){
+    $conn= $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $recuperer_query="SELECT * FROM recette_ingredients WHERE idrecette = '$idvalue'";
+    $query = $this->requete($conn , $recuperer_query);
+    $this->deconnexion($conn);
+    return $query;
+
+}
+
+
+
+/*.............etape..............*/
+public function insererRecetteEtapeModel($value1 , $value2 , $value3, $value4){
+    $conn = $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $insert = "INSERT INTO recetteetape(idrecette,titrerecette,titreetape,descetape) VALUES('$value1', '$value2', '$value3 ','$value4')";
+    $query = $this->requete($conn , $insert);
+    $this->deconnexion($conn);
+    return $query;
+}
+public function recupererRecetteEtapeModel($idvalue){
+    $conn= $this->connexion($this->host , $this->dbName , $this->user , $this->password);
+    $recuperer_query="SELECT * FROM recetteetape WHERE idrecette = '$idvalue'";
+    $query = $this->requete($conn , $recuperer_query);
+    $this->deconnexion($conn);
+    return $query;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

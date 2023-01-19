@@ -11,6 +11,12 @@ require_once('nutrition_view.php');
 require_once('ingredient_page.php');
 require_once('login_view.php');
 require_once('signup.php');
+require_once('profile_view.php');
+require_once('client_recette_ingredient.php');
+require_once('client_recette_etape.php');
+
+
+
 
 
 
@@ -180,6 +186,80 @@ public function afficherSignup (){
     $vueLogIn = new ViewSignup();
     $vueLogIn->afficherSite();
 }
+/*........................profil.................*/
+
+public function recupererUserControllerId($id){
+    $modele = new ClientModel();
+    return $modele->recupererUserModelId($id);
+}
+public function afficherSiteprofile (){
+    $vueLogIn = new profilView();
+    $vueLogIn->afficherSiteprofile();
+}
+
+public function insererRecetteController($value1 , $value2 , $value3, $value4, $value5, $value6, $value7, $value8, $value9, $value10, $value11, $value12,$value13,$value14,$value15,$value16){
+    $modele = new ClientModel();
+    return $modele->insererRecetteModel($value1 , $value2 , $value3, $value4, $value5, $value6, $value7, $value8, $value9, $value10, $value11, $value12,$value13,$value14,$value15,$value16);
+}
+
+
+public function supprimerRecetteController($id,$idvar){
+    $modele = new ClientModel();
+    return $modele->supprimerRecetteModel($id,$idvar);
+}
+
+
+
+public function recupererRecetteUserController($id){
+    $modele = new ClientModel();
+    return $modele->recupererRecetteUserModel($id);
+}
+
+
+/*.................ingredientsrecette...........*/
+public function recupererRecetteTitleController($id){
+    $modele = new ClientModel();
+    return $modele->recupererRecetteTitleModel($id);
+}
+
+public function insererRecetteIngredientController($value1 , $value2 , $value3, $value4, $value5, $value6){
+    $modele = new ClientModel();
+    return $modele->insererRecetteIngredientModel($value1 , $value2 , $value3, $value4, $value5, $value6);
+}
+
+public function recupererRecetteIngController($id){
+    $modele = new ClientModel();
+    return $modele->recupererRecetteIngModel($id);
+}
+
+public function afficherSiteIngredientRecette(){
+    $vueAdministrateurupdate = new IngredientRecipeView();
+    $vueAdministrateurupdate->afficherSiteIngredientRecette();
+}
+
+
+
+
+
+/*...........................etape................*/
+public function insererRecetteEtapeController($value1 , $value2 , $value3, $value4){
+    $modele = new ClientModel();
+    return $modele->insererRecetteEtapeModel($value1 , $value2 , $value3, $value4);
+}
+
+public function recupererRecetteEtapeController($id){
+    $modele = new ClientModel();
+    return $modele->recupererRecetteEtapeModel($id);
+}
+
+
+public function afficherSiteEtapeRecette(){
+    $vueAdministrateurupdate = new EtapeRecetteView();
+    $vueAdministrateurupdate->afficherSiteEtapeRecette();
+}
+
+
+
 
 
 }

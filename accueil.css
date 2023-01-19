@@ -455,3 +455,48 @@ div.about  h1{
     text-align: center;
     width: 120px;
 }
+
+
+
+
+
+.form-control:focus {
+  box-shadow: none;
+ 
+}
+
+.profile-button {
+ 
+  box-shadow: none;
+  border: none
+}
+
+.profile-button:hover {
+
+}
+
+.profile-button:focus {
+
+  box-shadow: none
+}
+
+.profile-button:active {
+
+  box-shadow: none
+}
+
+.back:hover {
+
+  cursor: pointer
+}
+
+.labels {
+  font-size: 11px
+}
+
+.add-experience:hover {
+  
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #BA68C8
+}
